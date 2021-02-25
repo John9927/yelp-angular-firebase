@@ -1,24 +1,17 @@
-import { RouterModule } from '@angular/router';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { environment } from './../environments/environment';
-import { AngularFireModule } from '@angular/fire';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AppComponent } from './app.component';
+import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Error404Component } from './error404/error404.component';
 
-
+const routes: Routes = [
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: '**', component: Error404Component },
+  {path: '',   redirectTo: '/dashboard', pathMatch: 'full' },
+];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    DashboardComponent,
-  ],
-  imports: [
-    CommonModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
-    RouterModule
-  ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

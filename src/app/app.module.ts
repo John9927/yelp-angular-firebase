@@ -6,15 +6,19 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AngularFireModule } from '@angular/fire';
 import {AngularFirestoreModule} from "@angular/fire/firestore";
 import { environment } from 'src/environments/environment';
+import { Error404Component } from './error404/error404.component';
+import { AppRoutingModule } from './app-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    Error404Component
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
