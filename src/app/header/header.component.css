@@ -1,7 +1,7 @@
 
 .header-login-signup{
 	background-color:transparent;
-	padding: 20px 40px;
+  padding: 27px 150px 0px 150px;
 	height: 80px;
 	color: white;
 	box-sizing: border-box;
@@ -57,6 +57,7 @@
 .header-login-signup .header-limiter ul li {
 	display: inline-block;
 	margin-left: 15px;
+  margin-right: 13px;
 	opacity:0.9;
 }
 
@@ -69,7 +70,7 @@
 .header-login-signup .header-limiter ul li:last-child a {
   font-weight: bold;
   background-color: transparent;
-  padding: 8px 18px;
+  padding: 8px 23px;
   border-radius: 5px;
   border: 3px solid white;
 }

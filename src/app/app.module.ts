@@ -10,12 +10,14 @@ import { environment } from 'src/environments/environment';
 import { Error404Component } from './error404/error404.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     Error404Component,
-    HeaderComponent
+    HeaderComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

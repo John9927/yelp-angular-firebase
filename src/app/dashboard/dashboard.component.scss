@@ -16,6 +16,8 @@
 }
 form {
   display: flex;
+  height: 40px;
+  width: 100%;
 }
 span {
   color: rgb(92, 91, 91);
@@ -26,23 +28,24 @@ span {
 .container {
   background-color: white;
   margin: auto;
-  width: 83%;
+  width: 75%;
   border-radius: 8px;
+  display: flex;
 }
 
 button {
   border-radius: 0 4px 4px 0;
   border: 0;
   background-color: #d32323;
-  padding: 14px 20px 14px;
+  padding: 9px 20px 14px;
   box-shadow: none;
 }
 input {
-  width: 39%;
+  width: 74%;
   border: 0;
   font-family: inherit;
   padding: 0;
-  height: 56px;
+  height: 41px;
   font-size: 18px;
   font-weight: 500;
   background: none;
