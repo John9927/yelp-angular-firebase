@@ -1,3 +1,4 @@
+import { HomePageComponent } from './home-page/home-page.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -8,7 +9,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'sign-up', component: SignUpComponent },
-
+  { path: 'home-page', component: HomePageComponent },
 
   { path: '**', component: Error404Component },
 ];

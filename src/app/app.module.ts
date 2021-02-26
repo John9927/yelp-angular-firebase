@@ -11,13 +11,16 @@ import { Error404Component } from './error404/error404.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { AgmCoreModule } from '@agm/core';
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     Error404Component,
     HeaderComponent,
-    SignUpComponent
+    SignUpComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +28,9 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     AngularFirestoreModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDrhSHs44aTOgbBIMaqP_tGvQC1HXEa_nY'
+    })
 
   ],
   providers: [],
