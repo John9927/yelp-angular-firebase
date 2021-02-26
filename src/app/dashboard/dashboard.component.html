@@ -21,7 +21,7 @@
           <div>
             <div *ngIf="showDropDown" class="autocomplete">
               <ul class="search-result1">
-                <li *ngFor="let tag of tagsTrova" (click)="onClick()">{{tag.trova}}</li>
+                <li (click)="selectValueTrova(tag)" *ngFor="let tag of tagsTrova" (click)="onClick()">{{tag.trova}}</li>
               </ul>
             </div>
           </div>
@@ -34,8 +34,8 @@
           <!-- Dropdown Vicino -->
           <div>
             <div *ngIf="showDropDown2" class="autocomplete">
-              <ul class="search-result2" (click)="onClick()">
-              <li *ngFor="let tag of tagsVicino">
+              <ul class="search-result2" >
+              <li  (click)="selectValueVicino(tag)" *ngFor="let tag of tagsVicino">
                 {{tag.vicino}}
               </li>
               </ul>

@@ -37,8 +37,14 @@ export class DashboardComponent implements OnInit {
     console.log(this.profileForm.value)
   }
 
-  onClick() {
-    console.log("Selezionato")
+  selectValueVicino(value) {
+    this.profileForm.patchValue(value);
+    this.showDropDown2 = false;
+  }
+
+  selectValueTrova(value) {
+    this.profileForm.patchValue(value);
+    this.showDropDown = false;
   }
 
   toggleDropDown() {
