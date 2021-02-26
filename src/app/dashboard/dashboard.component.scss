@@ -14,23 +14,30 @@
   background-position:center;
   height: 600px;
 }
+
 form {
   display: flex;
   height: 40px;
   width: 100%;
 }
+
 span {
   color: rgb(92, 91, 91);
   font-weight: bold;
   font-size: 18px;
   margin: auto;
 }
+
 .container {
   background-color: white;
-  margin: auto;
   width: 75%;
   border-radius: 8px;
   display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
 }
 
 button {
@@ -40,6 +47,7 @@ button {
   padding: 9px 20px 14px;
   box-shadow: none;
 }
+
 input {
   width: 74%;
   border: 0;
@@ -51,11 +59,23 @@ input {
   background: none;
   border-radius: 0;
 
-
   &:focus {
     outline: none;
-
   }
+}
+
+.autocomplete {
+  position: relative;
+}
+
+.search-result1 {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.search-result2 {
+  background-color: white;
 }
 
 
