@@ -16,12 +16,12 @@
           &nbsp;&nbsp;
           <span>Trova</span>
           &nbsp;&nbsp;
-          <input (click)="toggleDropDown()" type="text" formControlName="trova" placeholder="hamburger, barbieri, massaggi, idraulici...">
+          <input (click)="toggleDropDown()" [(ngModel)]="searchTrova" (input)="search($event)" type="text" formControlName="trova" placeholder="hamburger, barbieri, massaggi, idraulici...">
           <!-- Dropdown trova -->
           <div>
             <div *ngIf="showDropDown" class="autocomplete">
               <ul class="search-result1">
-                <li (click)="selectValueTrova(tag)" *ngFor="let tag of tagsTrova" (click)="onClick()">{{tag.trova}}</li>
+                <li (click)="selectValueTrova(tag)" *ngFor="let tag of trova" (click)="onClick()">{{tag.trova}}</li>
               </ul>
             </div>
           </div>
@@ -29,19 +29,20 @@
         <div class="trova">
           <span>Vicino</span>
           &nbsp;&nbsp;
-          <input (click)="toggleDropDown2()" type="text" formControlName="vicino" value="Roma"
+          <input (click)="toggleDropDown2()" [(ngModel)]="searchVicino" (input)="search2($event)" type="text" formControlName="vicino" value="Roma"
             placeholder="Indirizzo, quartiere, città, provincia o CAP">
           <!-- Dropdown Vicino -->
           <div>
-            <div *ngIf="showDropDown2" class="autocomplete">
+            <div class="autocomplete">
               <ul class="search-result2" >
-              <li (click)="selectValueVicino(tag)" *ngFor="let tag of tagsVicino">
+              <li (click)="selectValueVicino(tag)" *ngFor="let tag of vicino">
                 {{tag.vicino}}
               </li>
               </ul>
             </div>
           </div>
         </div>
+
 
         <!-- Icon -->
         <button style="flex: 1 1 10%;" type="submit">
@@ -57,3 +58,5 @@
 </body>
 
 </html>
+
+

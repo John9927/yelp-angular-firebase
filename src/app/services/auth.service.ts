@@ -9,25 +9,6 @@ export class AuthService {
 
   constructor(private firestore: AngularFirestore) { }
 
-  async getTrova() {
-    return await firebase.firestore()
-      .collection('trova')
-      .get()
-      .then((res) => res.docs.map(doc => ({
-        ...doc.data()
-      })
-    ))
-  }
-
-  async getVicino() {
-    return await firebase.firestore()
-      .collection('vicino')
-      .get()
-      .then((res) => res.docs.map(doc => {
-        return doc.data()
-      }
-    ))
-  }
 
 
 }

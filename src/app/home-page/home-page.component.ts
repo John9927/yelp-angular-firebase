@@ -1,3 +1,4 @@
+import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-home-page',
@@ -5,13 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
+  getPescara: any | undefined;
+  constructor(private authService: AuthService) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit() {
+    // this.authService.getPescara()
+    // .then(nomi => {
+    //   this.getPescara = nomi
+    // })
   }
 
-  lat = 13;
-  lng = 80;
+  lat = 42.4621097;
+  lng = 14.2186796;
 
 }
