@@ -16,12 +16,14 @@
           &nbsp;&nbsp;
           <span>Trova</span>
           &nbsp;&nbsp;
-          <input (click)="toggleDropDown()" [(ngModel)]="searchTrova" (input)="search($event)" type="text" formControlName="trova" placeholder="hamburger, barbieri, massaggi, idraulici...">
+          <input (click)="toggleDropDown()" [(ngModel)]="searchTrova" (keydown)="search($event)" type="text" formControlName="trova" placeholder="hamburger, barbieri, massaggi, idraulici...">
           <!-- Dropdown trova -->
           <div>
             <div *ngIf="showDropDown" class="autocomplete">
               <ul class="search-result1">
-                <li (click)="selectValueTrova(tag)" *ngFor="let tag of trova" (click)="onClick()">{{tag.trova}}</li>
+                <li id="trovaLi" (click)="selectValueTrova(tag)" *ngFor="let tag of trova">
+                  {{tag.trova}}
+                </li>
               </ul>
             </div>
           </div>
@@ -29,13 +31,13 @@
         <div class="trova">
           <span>Vicino</span>
           &nbsp;&nbsp;
-          <input (click)="toggleDropDown2()" [(ngModel)]="searchVicino" (input)="search2($event)" type="text" formControlName="vicino" value="Roma"
+          <input (click)="toggleDropDown2()" [(ngModel)]="searchVicino" (keydown)="search2($event)" type="text" formControlName="vicino" value="Roma"
             placeholder="Indirizzo, quartiere, città, provincia o CAP">
           <!-- Dropdown Vicino -->
           <div>
-            <div class="autocomplete">
+            <div *ngIf="showDropDown2" class="autocomplete">
               <ul class="search-result2" >
-              <li (click)="selectValueVicino(tag)" *ngFor="let tag of vicino">
+              <li id="trovaLi" (click)="selectValueVicino(tag)" *ngFor="let tag of vicino">
                 {{tag.vicino}}
               </li>
               </ul>
@@ -45,7 +47,7 @@
 
 
         <!-- Icon -->
-        <button style="flex: 1 1 10%;" type="submit">
+        <button id="buttonIcon" style="flex: 1 1 10%;" type="submit">
           <svg id="24x24_search" height="24" viewBox="0 0 24 24" width="24">
             <path
               d="M20.753 19.34l-4.295-4.297A7.46 7.46 0 0 0 18 10.5a7.5 7.5 0 1 0-7.5 7.5 7.46 7.46 0 0 0 4.543-1.542l4.296 4.295a1 1 0 1 0 1.412-1.414zM10.5 16A5.506 5.506 0 0 1 5 10.5C5 7.467 7.467 5 10.5 5S16 7.467 16 10.5 13.533 16 10.5 16z">
@@ -55,6 +57,44 @@
       </form>
     </div>
   </div>
+
+  <div>
+    <h4>Filter by</h4>
+    <div>
+      <h5>Prezzo</h5>
+      <button (click)="filterPrezzo1('€')">€</button>
+      <button (click)="filterPrezzo2('€€')">€€</button>
+      <button (click)="filterPrezzo3('€€€')">€€€</button>
+      <button (click)="filterPrezzo1(null)" *ngIf="this.prezzo1$.getValue()">
+        <em>clear filter</em>
+      </button>
+      <button (click)="filterPrezzo2(null)" *ngIf="this.prezzo2$.getValue()">
+        <em>clear filter</em>
+      </button>
+      <button (click)="filterPrezzo3(null)" *ngIf="this.prezzo3$.getValue()">
+        <em>clear filter</em>
+      </button>
+    </div>
+  </div>
+
+
+  <div *ngIf="items$ | async; let items; else loading">
+    <ul>
+      <li *ngFor="let city of items">
+        <p class="city__vicino">{{city?.vicino}}</p>
+        <p class="city__ristorante">Nome Ristorante: {{city?.ristorante?.nome}}</p>
+        <p class="city__via">Via: {{city?.ristorante?.via}}</p>
+        <p class="city__telefono">Telefono: {{city?.ristorante?.telefono}}</p>
+        <p class="city__prezzo">Prezzo: {{city?.ristorante?.prezzo}}</p>
+      </li>
+    </ul>
+    <div *ngIf="items.length === 0">Nessun risultato</div>
+  </div>
+
+
+
+  <ng-template #loading>Loading&hellip;</ng-template>
+
 </body>
 
 </html>

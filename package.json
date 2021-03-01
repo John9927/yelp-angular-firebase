@@ -23,6 +23,7 @@
     "@angular/router": "~11.0.5",
     "@types/google-maps": "^3.2.2",
     "firebase": "^8.2.9",
+    "lodash": "^4.17.21",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

@@ -40,14 +40,13 @@ span {
   text-align: center;
 }
 
-button {
+button#buttonIcon {
   border-radius: 0 4px 4px 0;
   border: 0;
   background-color: #d32323;
   padding: 9px 20px 14px;
   box-shadow: none;
 }
-
 
 .trova {
   flex: 1 1 45%;
@@ -83,6 +82,35 @@ input {
   background-color: white;
 }
 
+.city {
+  display: flex;
+  flex-direction: column;
+}
+
+.city__vicino {
+  font-size: 22px;
+  padding: 8px;
+  color: blue;
+  text-transform: capitalize;
+}
+
+.city__ristorante,
+.city__via,
+.city__telefono,
+.city__prezzo {
+
+  padding: 8px;
+  text-transform: capitalize;
+}
+
+.collections {
+  display: flex;
+  justify-content: center;
+  color: red;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
 ul {
   z-index: 1;
   position: absolute;
@@ -93,12 +121,12 @@ ul {
   box-shadow: 3px 3px 12px rgb(0 0 0 / 20%);
 }
 
-li {
+li#trovaLi {
   padding: 6px;
   display: flex;
   justify-content: flex-start;
 }
-li:hover {
+li#trovaLi:hover {
   background-color: rgb(95, 95, 201);
   color: white;
   cursor: pointer;
