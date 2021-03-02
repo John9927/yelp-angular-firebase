@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -19,7 +19,7 @@ export interface Item {
 @Component({
   selector: 'app-all-places',
   templateUrl: './all-places.component.html',
-  styleUrls: ['./all-places.component.css']
+  styleUrls: ['./all-places.component.scss']
 })
 export class AllPlacesComponent {
 
