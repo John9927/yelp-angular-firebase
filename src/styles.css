@@ -25,6 +25,11 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+  height: 100vh;
+}
+html {
+  height: 100%;
+  background-color: #3E4C5E;
 }
 ol, ul {
 	list-style: none;
@@ -40,4 +45,17 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+
+body::-webkit-scrollbar {
+  width: 12px;
+}
+body::-webkit-scrollbar-track {
+  background: #3E4C5E;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #536271;
+  border-radius: 20px;
+  border: 3px solid #3E4C5E;
 }
