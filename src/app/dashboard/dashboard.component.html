@@ -75,6 +75,23 @@
         <em>clear filter</em>
       </button>
     </div>
+    <!-- Filter Ristorante -->
+    <button (click)="filterRistorante('ristorante')">ristorante</button>
+    <button (click)="filterRistorante(null)" *ngIf="this.tipo$.getValue()">
+      <em>clear filter</em>
+    </button>
+    <br>
+    <!-- Filter Città -->
+    <button (click)="filterCitta('parma')">Parma</button>
+    <button (click)="filterCitta('bologna')">Bologna</button>
+    <button (click)="filterCitta('bari')">Bari</button>
+    <button (click)="filterCitta('pescara')">Pescara</button>
+    <button (click)="filterCitta('firenze')">Firenze</button>
+    <button (click)="filterCitta('verona')">Verona</button>
+    <button (click)="filterCitta('emilia romagna')">Emilia Romagna</button>
+    <button (click)="filterCitta(null)" *ngIf="this.citta$.getValue()">
+      <em>clear filter</em>
+    </button>
   </div>
 
 
