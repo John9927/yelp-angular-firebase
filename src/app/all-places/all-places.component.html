@@ -1,0 +1,53 @@
+<div>
+  <h4>Filter by</h4>
+  <div>
+    <h5>Prezzo</h5>
+    <button (click)="filterPrezzo1('€')">€</button>
+    <button (click)="filterPrezzo2('€€')">€€</button>
+    <button (click)="filterPrezzo3('€€€')">€€€</button>
+    <button (click)="filterPrezzo1(null)" *ngIf="this.prezzo1$.getValue()">
+      <em>clear filter</em>
+    </button>
+    <button (click)="filterPrezzo2(null)" *ngIf="this.prezzo2$.getValue()">
+      <em>clear filter</em>
+    </button>
+    <button (click)="filterPrezzo3(null)" *ngIf="this.prezzo3$.getValue()">
+      <em>clear filter</em>
+    </button>
+  </div>
+  <!-- Filter Ristorante -->
+  <button (click)="filterRistorante('ristorante')">ristorante</button>
+  <button (click)="filterRistorante(null)" *ngIf="this.tipo$.getValue()">
+    <em>clear filter</em>
+  </button>
+  <br>
+  <!-- Filter Città -->
+  <button (click)="filterCitta('parma')">Parma</button>
+  <button (click)="filterCitta('bologna')">Bologna</button>
+  <button (click)="filterCitta('bari')">Bari</button>
+  <button (click)="filterCitta('pescara')">Pescara</button>
+  <button (click)="filterCitta('firenze')">Firenze</button>
+  <button (click)="filterCitta('verona')">Verona</button>
+  <button (click)="filterCitta('emilia romagna')">Emilia Romagna</button>
+  <button (click)="filterCitta(null)" *ngIf="this.citta$.getValue()">
+    <em>clear filter</em>
+  </button>
+</div>
+
+
+<div *ngIf="items$ | async; let items; else loading">
+  <ul>
+    <li *ngFor="let city of items">
+      <p class="city__vicino">{{city?.vicino}}</p>
+      <p class="city__ristorante">Nome Ristorante: {{city?.ristorante?.nome}}</p>
+      <p class="city__via">Via: {{city?.ristorante?.via}}</p>
+      <p class="city__telefono">Telefono: {{city?.ristorante?.telefono}}</p>
+      <p class="city__prezzo">Prezzo: {{city?.ristorante?.prezzo}}</p>
+    </li>
+  </ul>
+  <div *ngIf="items.length === 0">Nessun risultato</div>
+</div>
+
+
+
+<ng-template #loading>Loading&hellip;</ng-template>

@@ -1,3 +1,4 @@
+import { AllPlacesComponent } from './all-places/all-places.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'home-page', component: HomePageComponent },
+  { path: 'all-places', component: AllPlacesComponent },
 
   { path: '**', component: Error404Component },
 ];
