@@ -7,16 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
   getPescara: any | undefined;
-  constructor(private authService: AuthService) { }
+  lat: number;
+  lng: number;
+  markers: any;
+  constructor(private geo: AuthService) { }
 
   ngOnInit() {
-    // this.authService.getPescara()
-    // .then(nomi => {
-    //   this.getPescara = nomi
-    // })
+    this.getUserLocation()
+    this.geo.hits.subscribe(hits => this.markers = hits)
+
   }
 
-  lat = 42.4621097;
-  lng = 14.2186796;
+  private getUserLocation() {
+    if(navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        this.lat = position.coords.latitude;
+        this.lng = position.coords.longitude;
 
+        this.geo.getLocation(500, [this.lat, this.lng])
+      });
+    }
+  }
 }

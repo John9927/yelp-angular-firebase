@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -15,13 +15,12 @@ export interface Item {
   citta: string;
 }
 
-
 @Component({
   selector: 'app-all-places',
   templateUrl: './all-places.component.html',
   styleUrls: ['./all-places.component.scss']
 })
-export class AllPlacesComponent {
+export class AllPlacesComponent implements OnInit{
 
   items$: Observable<Item[]>
   prezzo1$: BehaviorSubject<string|null>;
@@ -30,7 +29,7 @@ export class AllPlacesComponent {
   tipo$: BehaviorSubject<string|null>;
   citta$: BehaviorSubject<string|null>;
 
-  constructor(private fb: FormBuilder, private router: Router, private afs: AngularFirestore, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private router: Router, private afs: AngularFirestore, public geo: AuthService) {
     this.prezzo1$ = new BehaviorSubject(null);
     this.prezzo2$ = new BehaviorSubject(null);
     this.prezzo3$ = new BehaviorSubject(null);
@@ -45,8 +44,8 @@ export class AllPlacesComponent {
       this.citta$,
     ]).pipe(
       switchMap(([prezzo1, prezzo2, prezzo3, tipo, citta]) =>
-        afs.collection<Item>('vicino', ref => {
-          let query : firebase.firestore.CollectionReference | firebase.firestore.Query = ref;
+      afs.collection<Item>('citta', ref => {
+        let query : firebase.firestore.CollectionReference | firebase.firestore.Query = ref;
           if (prezzo1) { query = query.where('prezzo', '==', prezzo1) };
           if (prezzo2) { query = query.where('prezzo', '==', prezzo2) };
           if (prezzo3) { query = query.where('prezzo', '==', prezzo3) };
@@ -54,8 +53,8 @@ export class AllPlacesComponent {
           if (citta) { query = query.where('vicino', '==', citta) };
           return query;
         }).valueChanges()
-      )
-    );
+        )
+        );
   }
 
   filterPrezzo1(prezzo1: string|null) {
@@ -73,6 +72,16 @@ export class AllPlacesComponent {
   filterCitta(citta: string| null) {
     this.citta$.next(citta);
   }
+
+
+  ngOnInit() {
+  // this.getFilterTipos()
+  }
+
+  // getFilterTipos() {
+  //   this.geo.getFilterTipo()
+    // console.log(this.tipos)
+  // }
 
 
 }

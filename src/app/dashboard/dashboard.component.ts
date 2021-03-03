@@ -4,15 +4,6 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { Subject, combineLatest } from 'rxjs';
-
-export interface Item {
-  prezzo1: string;
-  prezzo2: string;
-  prezzo3: string;
-  tipo: string;
-  citta: string;
-}
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -63,12 +54,6 @@ export class DashboardComponent implements OnInit {
       })
     })
 
-    this.authService.getCity()
-      .subscribe(res => {
-        this.city = res.docs.map(doc => doc.data())
-      }
-    )
-
   }
 
   search($event) {
@@ -93,8 +78,8 @@ export class DashboardComponent implements OnInit {
   }
 
   firequery2(start, end) {
-    return this.afs.collection('vicino', ref =>
-      ref.limit(4)
+    return this.afs.collection('citta', ref =>
+      ref.limit(5)
       .orderBy('vicino')
       .startAt(start)
       .endAt(end))
@@ -103,7 +88,7 @@ export class DashboardComponent implements OnInit {
 
   onSubmit() {
     console.log(this.profileForm.value);
-    // this.router.navigateByUrl('home-page');
+    this.router.navigateByUrl('home-page');
   }
 
   selectValueVicino(value) {

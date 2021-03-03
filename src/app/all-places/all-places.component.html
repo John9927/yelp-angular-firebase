@@ -25,20 +25,24 @@
             <em>clear filter</em>
           </button>
         </div>
+
         <!-- Filter Ristorante -->
-        <button (click)="filterRistorante('ristorante')">Ristorante</button>
+        <button (click)="filterRistorante('Ristorante')">Ristorante</button>
+        <button (click)="filterRistorante('Bar')">Bar</button>
         <button (click)="filterRistorante(null)" *ngIf="this.tipo$.getValue()">
           <em>clear filter</em>
         </button>
+
         <br>
         <!-- Filter Città -->
-        <button (click)="filterCitta('parma')">Parma</button>
-        <button (click)="filterCitta('bologna')">Bologna</button>
-        <button (click)="filterCitta('bari')">Bari</button>
-        <button (click)="filterCitta('pescara')">Pescara</button>
-        <button (click)="filterCitta('firenze')">Firenze</button>
-        <button (click)="filterCitta('verona')">Verona</button>
+        <button (click)="filterCitta('Parma')">Parma</button>
+        <button (click)="filterCitta('Bologna')">Bologna</button>
+        <button (click)="filterCitta('Bari')">Bari</button>
+        <button (click)="filterCitta('Pescara')">Pescara</button>
+        <button (click)="filterCitta('Firenze')">Firenze</button>
+        <button (click)="filterCitta('Verona')">Verona</button>
         <button (click)="filterCitta('emilia romagna')">Emilia Romagna</button>
+        <button (click)="filterCitta('Roma')">Roma</button>
         <button (click)="filterCitta(null)" *ngIf="this.citta$.getValue()">
           <em>clear filter</em>
         </button>
@@ -49,10 +53,12 @@
         <ul>
           <li *ngFor="let city of items">
             <p class="city__vicino">{{city?.vicino}}</p>
-            <p class="city__ristorante">Nome Ristorante: {{city?.ristorante?.nome}}</p>
-            <p class="city__via">Via: {{city?.ristorante?.via}}</p>
-            <p class="city__telefono">Telefono: {{city?.ristorante?.telefono}}</p>
-            <p class="city__prezzo">Prezzo: {{city?.ristorante?.prezzo}}</p>
+            <p class="city__ristorante">Nome Ristorante: {{city?.nome}}</p>
+            <p class="city__via">Via: {{city?.via}}</p>
+            <p class="city__telefono">Telefono: {{city?.telefono}}</p>
+            <p class="city__prezzo">Prezzo: {{city?.prezzo}}</p>
+            <p class="city__tipo">Tipo: {{city.tipo}}</p>
+
           </li>
         </ul>
         <div *ngIf="items.length === 0">Nessun risultato</div>
