@@ -14,7 +14,6 @@ export interface Item {
   tipo: string;
   citta: string;
 }
-
 @Component({
   selector: 'app-all-places',
   templateUrl: './all-places.component.html',
@@ -44,13 +43,13 @@ export class AllPlacesComponent implements OnInit{
       this.citta$,
     ]).pipe(
       switchMap(([prezzo1, prezzo2, prezzo3, tipo, citta]) =>
-      afs.collection<Item>('citta', ref => {
+      afs.collection<Item>('vicino', ref => {
         let query : firebase.firestore.CollectionReference | firebase.firestore.Query = ref;
-          if (prezzo1) { query = query.where('prezzo', '==', prezzo1) };
-          if (prezzo2) { query = query.where('prezzo', '==', prezzo2) };
-          if (prezzo3) { query = query.where('prezzo', '==', prezzo3) };
-          if (tipo) { query = query.where('tipo', '==', tipo) };
-          if (citta) { query = query.where('vicino', '==', citta) };
+          if (prezzo1) { query = query.where('locale.prezzo', '==', prezzo1)};
+          if (prezzo2) { query = query.where('locale.prezzo', '==', prezzo2)};
+          if (prezzo3) { query = query.where('locale.prezzo', '==', prezzo3)};
+          if (tipo) { query = query.where('locale.tipo', '==', tipo)};
+          if (citta) { query = query.where('idCitta', '==', citta)};
           return query;
         }).valueChanges()
         )

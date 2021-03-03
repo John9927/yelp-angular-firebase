@@ -88,7 +88,7 @@ export class DashboardComponent implements OnInit {
 
   onSubmit() {
     console.log(this.profileForm.value);
-    this.router.navigateByUrl('home-page');
+    this.router.navigateByUrl('all-places');
   }
 
   selectValueVicino(value) {

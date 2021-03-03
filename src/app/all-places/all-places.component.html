@@ -15,13 +15,13 @@
           <button (click)="filterPrezzo1('€')">€</button>
           <button (click)="filterPrezzo2('€€')">€€</button>
           <button (click)="filterPrezzo3('€€€')">€€€</button>
-          <button (click)="filterPrezzo1(null)" *ngIf="this.prezzo1$.getValue()">
+          <button style="color: red;" (click)="filterPrezzo1(null)" *ngIf="this.prezzo1$.getValue()">
             <em>clear filter</em>
           </button>
-          <button (click)="filterPrezzo2(null)" *ngIf="this.prezzo2$.getValue()">
+          <button style="color: red;" (click)="filterPrezzo2(null)" *ngIf="this.prezzo2$.getValue()">
             <em>clear filter</em>
           </button>
-          <button (click)="filterPrezzo3(null)" *ngIf="this.prezzo3$.getValue()">
+          <button style="color: red;" (click)="filterPrezzo3(null)" *ngIf="this.prezzo3$.getValue()">
             <em>clear filter</em>
           </button>
         </div>
@@ -29,21 +29,16 @@
         <!-- Filter Ristorante -->
         <button (click)="filterRistorante('Ristorante')">Ristorante</button>
         <button (click)="filterRistorante('Bar')">Bar</button>
-        <button (click)="filterRistorante(null)" *ngIf="this.tipo$.getValue()">
+        <button (click)="filterRistorante('Plumbers')">Plumbers</button>
+        <button style="color: red;" (click)="filterRistorante(null)" *ngIf="this.tipo$.getValue()">
           <em>clear filter</em>
         </button>
 
         <br>
         <!-- Filter Città -->
-        <button (click)="filterCitta('Parma')">Parma</button>
-        <button (click)="filterCitta('Bologna')">Bologna</button>
-        <button (click)="filterCitta('Bari')">Bari</button>
-        <button (click)="filterCitta('Pescara')">Pescara</button>
         <button (click)="filterCitta('Firenze')">Firenze</button>
-        <button (click)="filterCitta('Verona')">Verona</button>
-        <button (click)="filterCitta('emilia romagna')">Emilia Romagna</button>
         <button (click)="filterCitta('Roma')">Roma</button>
-        <button (click)="filterCitta(null)" *ngIf="this.citta$.getValue()">
+        <button  style="color: red;" (click)="filterCitta(null)" *ngIf="this.citta$.getValue()">
           <em>clear filter</em>
         </button>
         <hr>
@@ -52,12 +47,12 @@
       <div *ngIf="items$ | async; let items; else loading">
         <ul>
           <li *ngFor="let city of items">
-            <p class="city__vicino">{{city?.vicino}}</p>
-            <p class="city__ristorante">Nome Ristorante: {{city?.nome}}</p>
-            <p class="city__via">Via: {{city?.via}}</p>
-            <p class="city__telefono">Telefono: {{city?.telefono}}</p>
-            <p class="city__prezzo">Prezzo: {{city?.prezzo}}</p>
-            <p class="city__tipo">Tipo: {{city.tipo}}</p>
+            <p class="city__vicino">{{city?.idCitta}}</p>
+            <p class="city__ristorante">Nome Ristorante: {{city?.locale.nome}}</p>
+            <p class="city__via">Via: {{city?.locale.via}}</p>
+            <p class="city__telefono">Telefono: {{city?.locale.telefono}}</p>
+            <p class="city__prezzo">Prezzo: {{city?.locale.prezzo}}</p>
+            <p class="city__tipo">Tipo: {{city.locale.tipo}}</p>
 
           </li>
         </ul>

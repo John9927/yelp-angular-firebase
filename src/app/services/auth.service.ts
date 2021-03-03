@@ -15,7 +15,7 @@ export class AuthService {
 
   constructor(private firestore: AngularFirestore) {
 
-    this.drRef = this.firestore.collection('vicino.locale');
+    this.drRef = this.firestore.collection('citta');
     // this.geoFire = new GeoFire(this.drRef.$ref);
     // con questa riga non funziona
   }
