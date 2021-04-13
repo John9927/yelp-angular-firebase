@@ -12,7 +12,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import { AgmCoreModule } from '@agm/core';
 import { AllPlacesComponent } from './all-places/all-places.component';
 @NgModule({
   declarations: [
@@ -30,9 +29,6 @@ import { AllPlacesComponent } from './all-places/all-places.component';
     AngularFirestoreModule.enablePersistence(),
     AppRoutingModule,
     ReactiveFormsModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDrhSHs44aTOgbBIMaqP_tGvQC1HXEa_nY'
-    }),
     FormsModule,
 
 
