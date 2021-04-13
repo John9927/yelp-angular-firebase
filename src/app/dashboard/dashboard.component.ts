@@ -80,7 +80,7 @@ export class DashboardComponent implements OnInit {
   firequery2(start, end) {
     return this.afs.collection('citta', ref =>
       ref.limit(5)
-      .orderBy('vicino')
+      .orderBy('nome')
       .startAt(start)
       .endAt(end))
       .valueChanges()

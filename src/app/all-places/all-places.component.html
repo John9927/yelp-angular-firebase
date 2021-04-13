@@ -37,7 +37,7 @@
         <br>
         <!-- Filter Città -->
         <button (click)="filterCitta('Firenze')">Firenze</button>
-        <button (click)="filterCitta('Roma')">Roma</button>
+        <button (click)="filterCitta('Parma')">Parma</button>
         <button  style="color: red;" (click)="filterCitta(null)" *ngIf="this.citta$.getValue()">
           <em>clear filter</em>
         </button>
@@ -47,14 +47,12 @@
       <div *ngIf="items$ | async; let items; else loading">
         <ul>
           <li *ngFor="let city of items">
-            <p class="city__vicino">{{city?.idCitta}}</p>
+            <p class="city__vicino">{{city?.idCitta | json}}</p>
             <p class="city__ristorante">Nome Ristorante: {{city?.locale.nome}}</p>
             <p class="city__via">Via: {{city?.locale.via}}</p>
             <p class="city__telefono">Telefono: {{city?.locale.telefono}}</p>
             <p class="city__prezzo">Prezzo: {{city?.locale.prezzo}}</p>
             <p class="city__tipo">Tipo: {{city.locale.tipo}}</p>
-
-          </li>
         </ul>
         <div *ngIf="items.length === 0">Nessun risultato</div>
       </div>

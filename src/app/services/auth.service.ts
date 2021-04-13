@@ -49,6 +49,7 @@ export class AuthService {
   //  return this.firestore
   //   .collection('vicino', ref => ref)
   //   .get()
+
   //   // .collection('vicino', ref => ref.where('prezzo', '==', '€'))
   //   // .get()
   // }

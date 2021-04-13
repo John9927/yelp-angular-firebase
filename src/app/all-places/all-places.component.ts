@@ -49,9 +49,10 @@ export class AllPlacesComponent implements OnInit{
           if (prezzo2) { query = query.where('locale.prezzo', '==', prezzo2)};
           if (prezzo3) { query = query.where('locale.prezzo', '==', prezzo3)};
           if (tipo) { query = query.where('locale.tipo', '==', tipo)};
-          if (citta) { query = query.where('idCitta', '==', citta)};
+          if (citta) { query = query.where('locale.citta', '==', citta)};
           return query;
-        }).valueChanges()
+        })
+        .valueChanges()
         )
         );
   }
@@ -74,7 +75,6 @@ export class AllPlacesComponent implements OnInit{
 
 
   ngOnInit() {
-  // this.getFilterTipos()
   }
 
   // getFilterTipos() {
